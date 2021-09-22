@@ -1,26 +1,31 @@
+// 引入资源及中间件
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// 引入index.js和users.js路由配置文件
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// 实例化express
 var app = express();
 
-// view engine setup
+// 视图引擎设置
 // 设置视图的目录为当前目录下的views文件夹
 app.set('views', path.join(__dirname, 'views'));
 // 设置视图引擎为ejs
 app.set('view engine', 'ejs');
 
+// 使用上面加载的资源
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());// 使用cookie
+app.use(express.static(path.join(__dirname, 'public')));// 指定公共资源文件夹
 
+// 为请求路径分配路由配置
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

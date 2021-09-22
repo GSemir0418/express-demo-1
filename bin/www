@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * 引入资源
  */
 
 var app = require('../app');
@@ -9,20 +9,20 @@ var debug = require('debug')('express-demo-1:server');
 var http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ * 获取并设置端口
  */
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * 开启HTTP服务
  */
 
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * 在全部网络接口上监听提供的端口
  */
 
 server.listen(port);
@@ -30,7 +30,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * 规范化端口为数字、字符串或false
  */
 
 function normalizePort(val) {
@@ -50,7 +50,7 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * HTTP服务器对于错误事件的事件监听器
  */
 
 function onError(error) {

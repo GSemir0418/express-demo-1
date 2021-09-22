@@ -1,4 +1,5 @@
 var express = require('express');
+// 实例化router对象
 var router = express.Router();
 
 /* GET users listing. */
